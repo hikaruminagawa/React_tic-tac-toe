@@ -9,6 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       // squares: new Array(9).fill('X')
+      finished:false,
       squares: new Array(9).fill(null),
       xIsNext:true
     };
@@ -17,8 +18,13 @@ class App extends React.Component {
     const squares = [...this.state.squares];
     // squares[i] = 'X';
     if (squares[i]) return;
+    if (this.state.finished) return;
     squares[i] = this.state.xIsNext ? 'X': 'O';
     this.setState({squares, xIsNext: !this.state.xIsNext  });
+    const winner = calculateWinner(this.state.squares);
+    if (winner){
+    this.setState({finished:true});
+    }
   }
   render() {
     const winner = calculateWinner(this.state.squares);
