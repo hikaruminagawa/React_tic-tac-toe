@@ -21,7 +21,7 @@ class App extends React.Component {
     if (this.state.finished) return;
     squares[i] = this.state.xIsNext ? 'X': 'O';
     this.setState({squares, xIsNext: !this.state.xIsNext  });
-    const winner = calculateWinner(this.state.squares);
+    const winner = calculateWinner(squares);
     if (winner){
     this.setState({finished:true});
     }
