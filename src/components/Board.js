@@ -1,26 +1,36 @@
+import { render } from "@testing-library/react";
 import Square from "./Square";
 
-const Board = () => {
+// const Board = () => {
+const Board = ({squares, handleClick}) => {
     const renderSquare = (i) => {
-        return <Square value = {i} />;
+        return(
+            //  <Square value = {i} key={i} />
+            <Square 
+            // value = {props.squares[i]} 
+            value = {squares[i]} 
+            key={i} 
+            // handleClick = {() => props.handleClick(i)}
+            handleClick = {() => handleClick(i)}
+            />
+             )
     };
+    
+    const renderRow = (start) => {
+        return (
+        <div className="board-row">
+            {Array.from(new Array(3), (_,index) => (
+                renderSquare(start + index)
+            ))}
+        </div>
+        )
+    };
+    
     return (
         <div>
-            <div className="board-row">
-                {renderSquare(0)}
-                {renderSquare(1)}
-                {renderSquare(2)}
-            </div>
-            <div className="board-row">
-                {renderSquare(3)}
-                {renderSquare(4)}
-                {renderSquare(5)}
-            </div>
-            <div className="board-row">
-                {renderSquare(6)}
-                {renderSquare(7)}
-                {renderSquare(8)}
-            </div>
+            {renderRow(0)}
+            {renderRow(3)}
+            {renderRow(6)}
         </div>
     );
 };
