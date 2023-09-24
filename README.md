@@ -1,3 +1,5 @@
+<img width="646" alt="image" src="https://github.com/hikaruminagawa/React_tic-tac-toe/assets/96165184/a1eaa762-5889-41e1-b309-89f5724a6326">
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
